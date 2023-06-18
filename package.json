@@ -1,0 +1,22 @@
+{
+  "name": "koa_api",
+  "version": "1.0.0",
+  "description": "koa_api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "start:live": "pm2 start src/index.js --watch --no-daemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "dotenv": "^14.3.2",
+    "joi": "^17.6.0",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "mongoose": "^6.1.8"
+  }
+}
