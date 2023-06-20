@@ -1,6 +1,17 @@
 const Joi = require('joi');
 const Account = require('../../models/Account');
 
+exports.updateThumbnail = async (ctx) => {
+    const { email, thumbnail } = ctx.params;
+    console.log(email, thumbnail);
+
+    try {
+        const result = await Account.updateThumnailByEmail(email, thumbnail);
+    } catch (e) {
+        ctx.throw(500, e);
+    }
+}
+
 // 회원가입
 // 데이터 검증은 안드로이드 스튜디오에서..!!!
 exports.register = async (ctx) => { // 전화번호도 검사!!

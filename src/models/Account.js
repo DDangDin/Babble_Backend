@@ -20,7 +20,8 @@ const Account = new Schema({
             id: { type: String },
             nickname: { type: String },
             age: { type: Number },
-            city: { type: String }
+            city: { type: String },
+            thumbnail: { type: String, default: '' }
         }],
         thumbnail: { type: String, default: '' }
     },
@@ -34,6 +35,11 @@ const Account = new Schema({
     // wishCount: { type: Number, default: 0 }, // 서비스에서 포스트를 작성 할 때마다 1씩 올라갑니다
     // createdAt: { type: Date, default: Date.now }
 });
+
+Account.statics.updateThumnailByEmail = function(email, thumbnail) {
+    // 객체에 내장되어있는 값을 사용 할 때는 '객체명.키' 이런식으로 쿼리하면 됩니다
+    return this.updateOne({'profile.email' : email}, { $set: {'profile.thumbnail' : thumbnail} })
+}
 
 Account.statics.findByUsername = function(username) {
     // 객체에 내장되어있는 값을 사용 할 때는 '객체명.키' 이런식으로 쿼리하면 됩니다
