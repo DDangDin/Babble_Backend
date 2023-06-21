@@ -7,7 +7,13 @@ exports.updateThumbnail = async (ctx) => {
 
     try {
         const result = await Account.updateThumnailByEmail(email, thumbnail);
+        ctx.body = {
+            result: true
+        }
     } catch (e) {
+        ctx.body = {
+            result: false
+        }
         ctx.throw(500, e);
     }
 }
