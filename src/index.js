@@ -19,7 +19,7 @@ mongoose.set("strictQuery", false);
 
 mongoose.Promise = global.Promise; // Node의 네이티브 Promise 사용
 // mongoDB연결
-const uri = process.env.MONGO_URI || 'test_uri'
+const uri = process.env.MONGO_URI
 mongoose.connect(uri, {
     // useMongoClient: true,
     usenewurlparser: true,

@@ -14,6 +14,7 @@ const Account = new Schema({
         nickname: String,
         email: { type: String },
         age: { type: Number, default: 0 },
+        city: { type: String },
         gender: { type: String, default: 'N' },
         phoneNumber: String,
         friends: [{
@@ -94,7 +95,7 @@ Account.statics.findDataForLogin = function({username, email}) {
 // };
 
 Account.statics.register = function(
-    { username, nickname, email, age, gender, phoneNumber, friends, thumbnail}) {
+    { username, nickname, email, age, city, gender, phoneNumber, friends, thumbnail}) {
     // 데이터를 생성 할 때는 new this() 를 사용합니다.
     const account = new this({
         profile: {
@@ -102,6 +103,7 @@ Account.statics.register = function(
             nickname,
             email,
             age,
+            city,
             gender,
             phoneNumber,
             friends,
