@@ -1,5 +1,6 @@
 // .env 파일에서 환경변수 불러오기
-require('dotenv').config({ path: '../.env' });
+// require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 
 
 const Koa = require('koa');
@@ -18,9 +19,9 @@ const bodyParser = require('koa-bodyparser');
 mongoose.set("strictQuery", false);
 
 mongoose.Promise = global.Promise; // Node의 네이티브 Promise 사용
+
 // mongoDB연결
-const uri = process.env.MONGO_URI
-mongoose.connect(uri, {
+mongoose.connect(process.env.MONGO_URI, {
     // useMongoClient: true,
     usenewurlparser: true,
     useunifiedtopology: true,
